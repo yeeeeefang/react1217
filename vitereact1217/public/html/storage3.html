@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>localStorage應用</h2>
+    <hr/>
+    <p>第<span id="count"></span>次造訪網站</p>
+    <script>
+        if(localStorage.visit){
+            console.log('有拜訪過');
+            console.log(localStorage.visit+1)//未轉換數值型態，結果為串接資料=>01
+            console.log(parseInt(localStorage.visit)+1)//有轉換數值型態，結果可運算=>1
+            localStorage.visit=parseInt(localStorage.visit)+1
+            document.getElementById('count').textContent=localStorage.visit;
+        }else{
+            console.log('沒有');
+            localStorage.visit=0;
+        }
+    </script>
+</body>
+</html>

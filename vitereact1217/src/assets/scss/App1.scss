@@ -1,0 +1,160 @@
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; // 子項之間的間距為 40px 
+    color: #333;
+
+    .score {
+        display: flex;
+        gap: 20px;
+        font-size: 18px;
+        line-height: 40px;
+
+        p {
+            &:first-child {
+                color: #4caf50;
+            }
+
+            &:last-child {
+                color: #f44336;
+            }
+        }
+    }
+
+    .draggable-items {
+        display: flex;
+        gap: 260px;
+
+        .draggable {
+            width: 100%;
+            height: 80px;
+            cursor: grab;//張開的手
+            transition: transform 0.2s ease;
+
+            &:hover {
+                transform: scale(1.05); //鼠標懸停時放大 
+              }
+
+            &:active {
+                cursor: grabbing;// 閉合的手
+                transform: scale(1.1); //按住元素時，元素放大至原始大小的 1.1 倍
+            }
+            
+        }
+    }
+
+    .matching-pairs {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .matching-pair {
+            display: flex;
+            align-items: center;
+            gap: 135px;
+
+            .label {
+                width: 420px;
+                height: auto;
+            }
+
+            .droppable {
+                width: 170px;
+                height: 80px;
+                border: 4px solid #C3825A;
+                border-radius: 20px;
+                background-color: rgba(43, 117, 81, 0.5);
+                display: inline-block;
+                transition: border-color 0.2s ease, background-color 0.2s ease;
+
+                &.dropped {
+                    border: none;
+                    background-color: transparent;
+                    
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                &:hover:not(.dropped) {
+                    border-color: rgba(195, 130, 90, 0.7);
+                    background-color:  rgba(43, 117, 81, 0.3);
+                }
+            }
+        }
+    }
+
+    .play-again-btn,.feedback-btn {
+        margin-left: 50px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #fff;
+        background-color: rgba(43, 117, 81);
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, transform 0.1s ease;
+
+        &:hover {
+            background-color: rgba(43, 117, 81), 10%;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+     /* 模態視窗樣式 */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(61, 53, 45, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+
+      .emotions-container {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 10px;
+
+        .emotion-button {
+          font-size: 2rem;
+          border: none;
+          background: none;
+          cursor: pointer;
+          transition: transform 0.2s ease;
+
+        //   &:hover {
+        //     transform: scale(1.2);
+        //   }
+          .emoji-img {
+            width: 50px;
+            height: 50px;
+            transition: transform 0.2s ease;
+
+            &:hover {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
